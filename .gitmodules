@@ -1,0 +1,3 @@
+[submodule "points-adapters"]
+	path = points-adapters
+	url = https://github.com/BlazeWasHere/points-adapters.git
