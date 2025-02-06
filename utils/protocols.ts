@@ -13,6 +13,7 @@ const URLS: Record<string, string> = {
   sonic: "https://my.soniclabs.com/points",
   symbiotic: "https://app.symbiotic.fi/dashboard/positions",
   syrup: "https://syrup.fi/portfolio",
+  treehouse: "https://app.treehouse.finance/portfolio",
   veda: "https://app.veda.tech/points",
 };
 

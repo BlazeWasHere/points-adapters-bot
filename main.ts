@@ -83,13 +83,13 @@ client.on(Events.InteractionCreate, async (ctx) => {
     const cooldownAmount = (command.cooldown ?? defaultCooldownDuration) * 1000;
 
     if (timestamps.has(ctx.user.id)) {
-      const userTimestamp = timestamps.get(ctx.user.id); // Get the timestamp
+      const userTimestamp = timestamps.get(ctx.user.id);
       if (userTimestamp !== undefined) {
         const expirationTime = userTimestamp + cooldownAmount;
 
         if (now < expirationTime) {
           const expiredTimestamp = Math.round(expirationTime / 1000);
-          return ctx.reply({
+          return await ctx.reply({
             content:
               `Please wait, you are on a cooldown for \`${command.data.name}\`.` +
               `You can use it again <t:${expiredTimestamp}:R>.`,
