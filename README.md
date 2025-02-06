@@ -4,7 +4,7 @@ A discord bot for fetching and aggregating points data from various DeFi protoco
 
 ## Join the Discord
 
-[![Discord Banner](https://discordapp.com/api/guilds/1335654843968262196/widget.png?style=banner2)]
+[![Discord Banner](https://discordapp.com/api/guilds/1335654843968262196/widget.png?style=banner2)](https://discord.gg/fJ5dJbxxTT)
 
 ## Available Commands
 
