@@ -8,6 +8,7 @@ const URLS: Record<string, string> = {
   henlo: "https://app.henlo.com",
   kelpdao: "https://kelpdao.xyz/defi",
   lombard: "https://www.lombard.finance/app/dashboard",
+  ramen: "https://app.ramen.finance/stake",
   resolv: "https://app.resolv.xyz/points",
   solv: "https://app.solv.finance/points",
   sonic: "https://my.soniclabs.com/points",
