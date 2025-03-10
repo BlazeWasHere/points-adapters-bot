@@ -72,6 +72,7 @@ export default {
 
         if (typeof total === "object") {
           breakdownTotals[name] = total;
+          normalTotals[name] = Object.values(total)[0];
         } else {
           normalTotals[name] = total;
         }
