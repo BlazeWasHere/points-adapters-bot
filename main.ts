@@ -17,7 +17,6 @@ if (dsn)
   Sentry.init({
     dsn,
     tracesSampleRate: 1.0,
-    debug: true,
     integrations: [
       Sentry.captureConsoleIntegration(),
       Sentry.extraErrorDataIntegration(),
