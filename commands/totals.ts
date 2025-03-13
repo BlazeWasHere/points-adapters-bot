@@ -24,7 +24,7 @@ import adapters from "../utils/adapters.ts";
 const PROTOCOL_SELECT_KEY = "ProtocolSelect";
 
 export default {
-  cooldown: 60 * 60, // 1 command per hour
+  //cooldown: 60 * 60, // 1 command per hour
   data: new SlashCommandBuilder()
     .setName("totals")
     .setDescription("Get total points across all protocols")
@@ -35,7 +35,7 @@ export default {
         .setRequired(true)
     ),
 
-  async execute(ctx: ChatInputCommandInteraction) {
+  execute: async (ctx: ChatInputCommandInteraction) => {
     await ctx.deferReply({ flags: MessageFlags.Ephemeral });
 
     const address = ctx.options.getString("address");

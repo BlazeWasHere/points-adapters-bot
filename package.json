@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@sentry/deno": "^9.5.0",
     "viem": "^2.23.5"
   }
 }

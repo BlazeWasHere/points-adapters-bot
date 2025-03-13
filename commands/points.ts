@@ -18,7 +18,7 @@ import { createPaginatedMessage } from "../utils/table.ts";
 import adapters from "../utils/adapters.ts";
 
 export default {
-  cooldown: 60 * 2, // 1 command per 2 mins
+  // cooldown: 60 * 2, // 1 command per 2 mins
   data: new SlashCommandBuilder()
     .setName("points")
     .setDescription("Get points for a specific protocol")
@@ -36,7 +36,7 @@ export default {
         .setRequired(true)
     ),
 
-  async autocomplete(ctx: AutocompleteInteraction) {
+  autocomplete: async (ctx: AutocompleteInteraction) => {
     const focusedValue = ctx.options.getFocused();
     const filtered = Object.keys(adapters).filter((choice) =>
       choice.toLowerCase().startsWith(focusedValue.toLowerCase())
@@ -47,7 +47,7 @@ export default {
     );
   },
 
-  async execute(ctx: ChatInputCommandInteraction) {
+  execute: async (ctx: ChatInputCommandInteraction) => {
     await ctx.deferReply({ flags: MessageFlags.Ephemeral });
 
     const protocol = ctx.options.getString("protocol")?.toLowerCase();
@@ -71,10 +71,10 @@ export default {
         `${protocol} points for ${displayAddress(address)}`
       );
     } catch (err) {
+      console.error(err);
       await ctx.editReply(
         `An error occurred while fetching points for ${protocol}.`
       );
-      console.error(err);
     }
   },
 };

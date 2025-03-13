@@ -5,6 +5,7 @@
     "jsr:@std/fs@^1.0.9": "1.0.9",
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "jsr:@std/path@^1.0.8": "1.0.8",
+    "npm:@sentry/deno@^9.5.0": "9.5.0",
     "npm:@types/node@*": "22.5.4",
     "npm:discord.js@^14.17.3": "14.17.3",
     "npm:viem@^2.23.5": "2.23.5_ws@8.18.0"
@@ -128,6 +129,15 @@
         "@scure/base"
       ]
     },
+    "@sentry/core@9.5.0": {
+      "integrity": "sha512-NMqyFdyg26ECAfnibAPKT8vvAt4zXp4R7dYtQnwJKhEJEVkgAshcNYeJ2D95ZLMVOqlqhTtTPnw1vqf+v9ePZg=="
+    },
+    "@sentry/deno@9.5.0": {
+      "integrity": "sha512-YGFcCY8hWYeZ/U6MK7SVx9k4++F8HbXtQBv6yMO6xzyobfFrZD3MpBD+47tV8Mu9z3F6v7o6BkNjMXNVvWlYFg==",
+      "dependencies": [
+        "@sentry/core"
+      ]
+    },
     "@types/node@22.5.4": {
       "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
       "dependencies": [
@@ -237,6 +247,7 @@
     ],
     "packageJson": {
       "dependencies": [
+        "npm:@sentry/deno@^9.5.0",
         "npm:viem@^2.23.5"
       ]
     }

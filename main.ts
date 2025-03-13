@@ -10,6 +10,19 @@ import {
   Routes,
   REST,
 } from "discord.js";
+import * as Sentry from "@sentry/deno";
+
+const dsn = Deno.env.get("SENTRY_DSN");
+if (dsn)
+  Sentry.init({
+    dsn,
+    tracesSampleRate: 1.0,
+    debug: true,
+    integrations: [
+      Sentry.captureConsoleIntegration(),
+      Sentry.extraErrorDataIntegration(),
+    ],
+  });
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const cooldowns = new Collection<string, Collection<string, number>>();
@@ -45,6 +58,7 @@ try {
   console.log("Successfully reloaded application (/) commands.");
 } catch (error) {
   console.error(error);
+  Sentry.captureException(error);
 }
 
 client.on(Events.InteractionCreate, async (ctx) => {
@@ -101,6 +115,14 @@ client.on(Events.InteractionCreate, async (ctx) => {
 
     timestamps.set(ctx.user.id, now);
     setTimeout(() => timestamps.delete(ctx.user.id), cooldownAmount);
+
+    Sentry.addBreadcrumb({
+      category: "user",
+      message:
+        ` ${ctx.user.globalName} ran the command: /${command.data.name} ` +
+        ctx.options.data.flatMap((x) => x.value).join(" "),
+      level: "info",
+    });
 
     try {
       await command.execute(ctx as ChatInputCommandInteraction);
